@@ -1,0 +1,19 @@
+@import "../../../main.scss";
+
+.c-button {
+    width: 100%;
+    input {
+        background: $color-black-dark;
+        color: $color-white;
+        width: 100%;
+        border-radius: 5px;
+        border: 2px solid $color-white;
+        padding: 8px 12px;
+        font: inherit;
+        outline: inherit;
+
+        @include bpTabletPortraitUp() {
+            padding: 12px;
+        }
+    }
+}

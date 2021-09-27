@@ -1,0 +1,56 @@
+@mixin bpSmartphone() {
+    @media only screen and (max-width: #{$bp-sm - 1}) {
+        @content;
+    }
+}
+
+@mixin bpTabletPortrait() {
+    @media only screen and (min-width: #{$bp-sm}) and (max-width: #{$bp-md - 1}) {
+        @content;
+    }
+}
+
+@mixin bpTabletPortraitUp() {
+    @media only screen and (min-width: #{$bp-sm}) {
+        @content;
+    }
+}
+
+@mixin bpDesktop() {
+    @media only screen and (min-width: #{$bp-md}) and (max-width: #{$bp-lg - 1}) {
+        @content;
+    }
+}
+@mixin bpDesktopUp() {
+    @media only screen and (min-width: #{$bp-md}) {
+        @content;
+    }
+}
+@mixin bpDesktopL() {
+    @media only screen and (min-width: #{$bp-lg}) and (max-width: #{$bp-xl}) {
+        @content;
+    }
+}
+@mixin bpDesktopLUp() {
+    @media only screen and (min-width: #{$bp-lg}) {
+        @content;
+    }
+}
+@mixin bpDesktopXL() {
+    @media only screen and (min-width: #{$bp-xl}) {
+        @content;
+    }
+}
+
+$max: 64;
+$offset: 8;
+$unit: "px"; // Feel free to change the unit.
+@mixin list-loop($className, $styleName) {
+    $i: 0;
+    @while $i <= $max {
+        #{$className + $i} {
+            #{$styleName}: #{$i + $unit} !important;
+        }
+        $i: $i + $offset;
+    }
+}

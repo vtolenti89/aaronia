@@ -1,0 +1,58 @@
+@import "../main.scss";
+
+.p-homepage {
+    padding: 0 20px;
+    display: flex;
+    margin-top: $header-height-mobile;
+    overflow: hidden;
+
+    @include bpTabletPortraitUp() {
+        margin-top: $header-height-desktop;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    &__panel {
+        padding: 20px 20px 0 0;
+        width: 0;
+        box-shadow: 4px 0px 6px rgba($color: $color-white, $alpha: 0.5);
+        position: relative;
+        overflow: auto;
+
+        @include bpTabletPortraitUp() {
+            width: 100%;
+            text-align: right;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 10px;
+            margin-top: 10px;
+
+            @include bpTabletPortraitUp() {
+            }
+        }
+
+        &.is-open {
+            width: auto;
+        }
+    }
+
+    &__inner {
+        padding-left: 12px;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        height: calc(100vh - #{$header-height-mobile});
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
+        &::-webkit-scrollbar {
+            display: none; /* Safari and Chrome */
+        }
+        @include bpTabletPortraitUp() {
+            height: calc(100vh - #{$header-height-desktop});
+        }
+    }
+}

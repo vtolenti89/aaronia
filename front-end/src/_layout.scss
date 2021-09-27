@@ -1,0 +1,14 @@
+p,
+a,
+h1,
+h2,
+h3 {
+    color: $color-white;
+}
+
+.container {
+    @include bpDesktopUp() {
+        max-width: 1140px;
+    }
+}
+

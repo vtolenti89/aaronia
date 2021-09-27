@@ -1,0 +1,27 @@
+@import "../../main.scss";
+
+.c-header {
+    display: flex;
+    justify-content: center;
+    background-color: $color-black-dark;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    height: $header-height-mobile;
+    box-shadow: 0 2px 3px rgba($color: $color-white, $alpha: 0.5);
+
+    @include bpTabletPortraitUp {
+        height: $header-height-desktop;
+    }
+
+    &__inner {
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include bpTabletPortraitUp {
+        }
+    }
+}

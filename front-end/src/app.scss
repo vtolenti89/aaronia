@@ -1,0 +1,10 @@
+@import "main";
+
+.app {
+  background-color: $color-black-dark;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
