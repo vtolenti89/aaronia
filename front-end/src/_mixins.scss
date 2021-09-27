@@ -21,6 +21,7 @@
         @content;
     }
 }
+
 @mixin bpDesktopUp() {
     @media only screen and (min-width: #{$bp-md}) {
         @content;

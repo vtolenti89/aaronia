@@ -8,7 +8,7 @@
     padding: 40px 0px 0px 0;
     scroll-behavior: smooth;
 
-    @include bpTabletPortraitUp() {
+    @include bpDesktopUp() {
         flex-direction: row;
         min-height: 400px;
         padding: 60px 0px;
@@ -29,7 +29,7 @@
         flex: 1;
     }
 
-    @include bpTabletPortraitUp {
+    @include bpDesktopUp {
     }
 
     &__image-wrapper {
@@ -39,16 +39,20 @@
             max-width: 600px;
             max-height: 100%;
             object-fit: contain;
+            transform: scale(1);
+            transition: 0.2s all ease-in-out;
+            &:hover {
+                transform: scale(1.02);
+            }
         }
 
-        @include bpTabletPortraitUp {
+        @include bpDesktopUp {
             padding-right: 40px;
         }
     }
 
     &__content {
         padding: 20px 0px;
-
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -64,7 +68,7 @@
         p {
         }
 
-        @include bpTabletPortraitUp {
+        @include bpDesktopUp {
             padding: 0 20px;
         }
     }
@@ -77,14 +81,14 @@
         .c-button {
             margin: 0 20px;
 
-            @include bpTabletPortraitUp() {
+            @include bpDesktopUp() {
                 margin: 0 40px;
             }
         }
     }
 
     &--reverse {
-        @include bpTabletPortraitUp {
+        @include bpDesktopUp {
             .c-section {
                 &__image-wrapper {
                     order: 2;

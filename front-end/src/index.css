@@ -10,7 +10,7 @@ body {
   overflow: hidden;
 }
 
-body > * {
+body * {
   box-sizing: border-box;
 }
 

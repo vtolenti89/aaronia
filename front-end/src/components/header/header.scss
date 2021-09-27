@@ -11,7 +11,7 @@
     height: $header-height-mobile;
     box-shadow: 0 2px 3px rgba($color: $color-white, $alpha: 0.5);
 
-    @include bpTabletPortraitUp {
+    @include bpDesktopUp {
         height: $header-height-desktop;
     }
 
@@ -20,8 +20,30 @@
         padding: 0 20px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        @include bpTabletPortraitUp {
+        justify-content: flex-start;
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 0 30px;
+            position: relative;
+            transition: 0.2s all ease-in-out;
+            &::after {
+                content: '';
+                display: block;
+                border-top: 2px solid $color-white;
+                width: 0;
+                margin-left: 50%;
+                transform: translateX(-50%);
+                transition: 0.2s all ease-in-out;
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }   
+            }   
+        }
+        @include bpDesktopUp {
         }
     }
 }

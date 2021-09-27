@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Section from '../components/section/section';
+import Button from '../components/shared/button/button';
+import {DefaultProps} from '../interfaces';
 import './homePage.scss';
-
 
 const imageRootFolder = '/assets/images/';
 
@@ -43,10 +43,32 @@ const sections = [
     anchor: 'recordnreplay',
     label: 'IQ Recording'
   },
+{
+  headline: '-170dBm/Hz DANL',
+  image:'top_picture4_full.jpeg',
+  text: 'Die außergewöhnlich hohe Empfindlichkeit des SPECTRAN® V6 ermöglicht die Messung selbst extrem schwacher Signale, die bisher nur der Benchtop-Klasse vorbehalten war. Signale, die bisher verborgen waren, können durch den erstklassigen DANL problemlos erfasst werden. Der Screenshot demonstriert eindrucksvoll den Unterschied: Selbst Signale um die -170dBm können mit einem RBW von 1Hz noch erfasst werden.',
+  forumLink:'https://v6-forum.aaronia.de/forum/topic/preamplifier-offers-addition-20db-of-gain/',
+  videoLink:'',
+  anchor:'danl',
+  label:'DANL'
+},
+{
+  headline: 'Echtzeit EMV Messung',
+  image:'top_picture7_full.jpeg',
+  text: 'Die enorme Echtzeitbandbreite von bis zu 245MHz, sowie die ultraschnelle Sweep-Geschwindigkeit des SPECTRAN® V6 ermöglichen EMV-Messungen in Echtzeit. So kann der Erfolg von Änderungen, wie beispielsweise das Ergreifen von Entstör- und Abschirm-Maßnahmen, sofort ermittelt und bewertet werden. Die gleichzeitige Anzeige von mehreren Grenzwerten erhöht die Geschwindigkeit der Messung erheblich, da diese nicht mehr einzeln durchgeführt werden müssen. Der Screenshot zeigt eine gleichzeitige Live-Messung nach EN55015 und EN61800-3 Norm mit visueller Rückmeldung bei Nicht-Einhaltung der Grenzwerte (Marker in rot)',
+  forumLink:'https://v6-forum.aaronia.de/forum/topic/emc-emi-limit-line-measurement/',
+  videoLink:'',
+  anchor:'emv',
+  label:'EMV'
+}
 ]
 
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC<DefaultProps> = ({history}) => {
+
+  const handleOnClick = () => {
+    history.push('/configurator');
+  }
 
   return (
     <div className="p-homepage container">
@@ -69,8 +91,9 @@ const HomePage: React.FC = () => {
             flip={index % 2 ? true : false}
           />
         })}
-        <Link to={"/configurator"}>Konfigurator</Link>
-
+        <Button label={'Jetzt individuelle Lösung konfigurieren'}
+                onClick={handleOnClick}
+        />
       </div>
     </div>
   );

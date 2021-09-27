@@ -7,20 +7,12 @@ interface HeaderProps {
 
 const links = [
     {
-        url: 'bandbreite',
-        label: 'Bandbreite'
+        url: '/',
+        label: 'Home'
     },
     {
-        url: 'geschwindigkeit',
-        label: 'Geschwindigkeit',
-    },
-    {
-        url: 'poi',
-        label: 'POI',
-    },
-    {
-        url: 'recordnreplay',
-        label: 'Record & Replay',
+        url: 'configurator',
+        label: 'Konfigurator',
     }
 ]
 

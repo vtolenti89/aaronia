@@ -5,9 +5,11 @@
     display: flex;
     margin-top: $header-height-mobile;
     overflow: hidden;
+    position: relative;
 
-    @include bpTabletPortraitUp() {
+    @include bpDesktopUp() {
         margin-top: $header-height-desktop;
+        height: calc(100vh - #{$header-height-desktop});
     }
 
     h1 {
@@ -15,14 +17,21 @@
     }
 
     &__panel {
-        padding: 20px 20px 0 0;
         width: 0;
         box-shadow: 4px 0px 6px rgba($color: $color-white, $alpha: 0.5);
         position: relative;
         overflow: auto;
+        position: absolute;
+        top: $header-height-mobile;
+        padding: 0;
+        height: calc(100vh - #{$header-height-mobile});
 
-        @include bpTabletPortraitUp() {
+        @include bpDesktopUp() {
+            padding: 20px 20px 0 0;
             width: 100%;
+            top: 0;
+            height: 100%;
+            position: relative;
             text-align: right;
         }
 
@@ -31,8 +40,24 @@
             text-decoration: none;
             padding: 10px 10px;
             margin-top: 10px;
+            position: relative;
+            transition: 0.2s all ease-in-out;
+            &::after {
+                content: '';
+                display: block;
+                border-top: 2px solid $color-white;
+                width: 0;
+            transition: 0.2s all ease-in-out;
 
-            @include bpTabletPortraitUp() {
+            }
+
+            &:hover {
+                &::after {
+                    width: 100%;
+                }   
+            }
+
+            @include bpDesktopUp() {
             }
         }
 
@@ -42,7 +67,7 @@
     }
 
     &__inner {
-        padding-left: 12px;
+
         overflow: scroll;
         scroll-behavior: smooth;
         height: calc(100vh - #{$header-height-mobile});
@@ -51,8 +76,9 @@
         &::-webkit-scrollbar {
             display: none; /* Safari and Chrome */
         }
-        @include bpTabletPortraitUp() {
-            height: calc(100vh - #{$header-height-desktop});
+        @include bpDesktopUp() {
+            padding: 0 0 20px 20px;
+            height: 100%
         }
     }
 }

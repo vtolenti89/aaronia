@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {DefaultProps, Specs} from '../interfaces';
 
-const ConfiguratorPage : React.FC = () => {
+const defaultSpecs : Specs = {
+  version: '',
+  options: '',
+  software: ''  
+}
+
+const ConfiguratorPage : React.FC<DefaultProps> = () => {
+  const [specs, setSpecs] = useState<Specs>(defaultSpecs)
+  
   return (
     <div className="p-configurator">
-      This is the configurator page
+      <h1>Konfigurator</h1>
+
     </div>
   );
 }
