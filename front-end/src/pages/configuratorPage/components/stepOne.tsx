@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { DefaultProps, Specs, SpecVersion, Step } from '../../../interfaces';
+import { DefaultProps, Specs, SpecVersion, StepDefaultProps } from '../../../interfaces';
 import './step.scss';
 import StepFooter from './stepFooter';
 
-interface StepOneProps {
+interface StepOneProps extends StepDefaultProps {
   version: SpecVersion;
   onChangeVersion: (version: SpecVersion) => void;
-  onNextClick: () => void;
 }
 
 const versions = [
@@ -35,12 +34,12 @@ const StepOne: React.FC<StepOneProps> = ({version, onNextClick, onChangeVersion}
       <h1>Version</h1>
       <div className={'c-step-one__selector'}>
         {versions.map((v, index) => {
-          return <div  onClick={(e)=>onChangeVersion(v)} className={'c-step-one__selector__inner'}>
+          return <div key={index}  onClick={(e)=>onChangeVersion(v)} className={'c-step-one__selector__inner'}>
             <img src={'/assets/images/' + v.image} alt="version_image" />
-            <label className="container">{v.label}
+            <label>{v.label}
               <input  type="radio" name={v.name} 
                       checked={v.name === version.name }
-                      
+                      readOnly={true}
                       />
             </label>
           </div>

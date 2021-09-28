@@ -1,14 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import Button from '../../../components/shared/button/button';
-import {DefaultProps, Specs, Step} from '../../../interfaces';
+import {DefaultProps, Specs, StepDefaultProps} from '../../../interfaces';
 import './step.scss';
 
-interface StepFooterProps extends Step{
+interface StepFooterProps extends StepDefaultProps{
     previousLabel?: string;
     nextLabel?: string;
     nextDisabled?: boolean
-    onPreviousClick?: () => void;
-    onNextClick?: () => void;
 } 
 
 const StepFooter : React.FC<StepFooterProps> = ({previousLabel, nextLabel, onPreviousClick, onNextClick, nextDisabled}) => {

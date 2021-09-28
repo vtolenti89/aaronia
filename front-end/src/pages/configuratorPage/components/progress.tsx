@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Button from '../../../components/shared/button/button';
-import {DefaultProps, Specs, Step, ProgressStep} from '../../../interfaces';
+import {DefaultProps, Specs, ProgressStep} from '../../../interfaces';
 import './progress.scss';
 
 interface ProgressProps {
@@ -14,7 +14,7 @@ const Progress : React.FC<ProgressProps> = ({actualId, list}) => {
       <div className="c-progress__inner">
 
       {list.map((step, index) => {
-        return <div className={`c-progress__step ${actualId >= step.id ? 'is-active' : ''}`}>
+        return <div key={index} className={`c-progress__step ${actualId >= step.id ? 'is-active' : ''}`}>
 
           <span>{step.label.toUpperCase()}</span>
         </div>

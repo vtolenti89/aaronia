@@ -1,0 +1,35 @@
+@import "../../../main.scss";
+
+.c-input {
+    width: 100%;
+    input {
+        background: $color-black-dark;
+        color: $color-white;
+        width: 100%;
+        border-radius: 5px;
+        border: 2px solid $color-white;
+        padding: 8px 12px;
+        font: inherit;
+        outline: inherit;
+        transition: 0.2s all ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background: $color-white;
+          color: $color-black-dark;
+          box-shadow: 0 0 6px rgba($color: $color-white, $alpha: 1.0);
+        }
+
+        &:disabled {
+            background-color: $color-grey-dark;
+            color: $color-black-dark;
+            cursor: not-allowed;
+            box-shadow: none;
+            border: none;
+        }
+
+        @include bpTabletPortraitUp() {
+            padding: 12px;
+        }
+    }
+}

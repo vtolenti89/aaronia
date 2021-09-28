@@ -16,7 +16,7 @@ const defaultSpecs: Specs = {
   software: []
 }
 
-const properties = ['version', 'option', 'software'].map((prop, index) => {
+const properties = ['version', 'option', 'software', 'summary', 'complete'].map((prop, index) => {
   return {
     id: index + 1,
     label: prop

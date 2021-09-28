@@ -16,18 +16,31 @@ export interface SpecVersion {
     label?: string;
 }
 
+export interface SpecSoft {
+    id: number;
+    name: string;
+    description: string;
+}
+
 export interface Specs {
     version: SpecVersion;
     option: SpecOption;
-    software: Array<string>;
+    software: Array<SpecSoft>;
 }
 
-export interface Step {
-    onPreviousClick?: (e: any) => void;
-    onNextClick?: (e: any) => void; 
+export interface StepDefaultProps {
+    onPreviousClick?: () => void;
+    onNextClick?: () => void; 
 }
 
 export interface ProgressStep {
     id: number;
     label: string;
+}
+
+export interface UserForm {
+    name: string;
+    email: string;
+    comment: string;
+    privacy: boolean;
 }

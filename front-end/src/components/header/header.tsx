@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = () => {
                     <img src="/assets/images/logo.png" alt="" />
                 </a>
                 {links.map((link, index) => {
-                    return <a href={link.url}>{link.label}</a>
+                    return <a key={index} href={link.url}>{link.label}</a>
                 })}
             </div>
         </div>

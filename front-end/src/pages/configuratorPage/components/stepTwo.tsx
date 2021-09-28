@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { DefaultProps, Specs, Step, SpecOption } from '../../../interfaces';
+import { DefaultProps, Specs, StepDefaultProps, SpecOption } from '../../../interfaces';
 import StepFooter from './stepFooter';
 
 import './step.scss';
 
-interface StepTwoProps extends Step {
+interface StepTwoProps extends StepDefaultProps {
   option: SpecOption;
   onChangeOption: (option: SpecOption) => void;
-  onNextClick: () => void;
-  onPreviousClick: () => void;
 }
 
 const options = [
@@ -48,10 +46,10 @@ const StepTwo: React.FC<StepTwoProps> = ({ option, onChangeOption, onPreviousCli
   return (
     <div className="c-step c-step-two">
       <h1>Options</h1>
-      <div className={'c-stepone__selector'}>
+      <div className={'c-step-two__selector'}>
         {options.map((o, index) => {
-          return <div className={'c-stepone__selector__inner'}>
-            <label className="">
+          return <div key={index} className={'c-step-two__selector__inner'}>
+            <label>
               <div className="c-step-two__description">
               <p>
                 {o.option}
