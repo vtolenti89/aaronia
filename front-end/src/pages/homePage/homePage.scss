@@ -1,16 +1,16 @@
-@import "../main.scss";
+@import "../../main.scss";
 
-.p-homepage {
+.p-home {
     padding: 0 20px;
     display: flex;
-    margin-top: $header-height-mobile;
+    // margin-top: $header-height-mobile;
     overflow: hidden;
     position: relative;
 
-    @include bpDesktopUp() {
-        margin-top: $header-height-desktop;
-        height: calc(100vh - #{$header-height-desktop});
-    }
+    // @include bpDesktopUp() {
+    //     margin-top: $header-height-desktop;
+    //     height: calc(100vh - #{$header-height-desktop});
+    // }
 
     h1 {
         text-align: center;
@@ -37,24 +37,15 @@
 
         a {
             display: block;
+            color: $color-grey-dark;
             text-decoration: none;
             padding: 10px 10px;
             margin-top: 10px;
             position: relative;
             transition: 0.2s all ease-in-out;
-            &::after {
-                content: '';
-                display: block;
-                border-top: 2px solid $color-white;
-                width: 0;
-            transition: 0.2s all ease-in-out;
-
-            }
 
             &:hover {
-                &::after {
-                    width: 100%;
-                }   
+                color: $color-white;
             }
 
             @include bpDesktopUp() {

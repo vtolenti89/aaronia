@@ -1,0 +1,12 @@
+@import "../../main.scss";
+
+.p-configurator {
+    padding: 0 20px;
+    display: flex;
+    margin-top: $header-height-mobile;
+    // overflow: hidden;
+    position: relative;
+    flex-direction: column;
+    overflow: scroll;
+
+}

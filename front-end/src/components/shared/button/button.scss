@@ -20,6 +20,14 @@
           box-shadow: 0 0 6px rgba($color: $color-white, $alpha: 1.0);
         }
 
+        &:disabled {
+            background-color: $color-grey-dark;
+            color: $color-black-dark;
+            cursor: not-allowed;
+            box-shadow: none;
+            border: none;
+        }
+
         @include bpTabletPortraitUp() {
             padding: 12px;
         }

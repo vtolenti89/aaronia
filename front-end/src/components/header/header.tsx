@@ -7,10 +7,6 @@ interface HeaderProps {
 
 const links = [
     {
-        url: '/',
-        label: 'Home'
-    },
-    {
         url: 'configurator',
         label: 'Konfigurator',
     }
@@ -21,6 +17,9 @@ const Header: React.FC<HeaderProps> = () => {
     return (
         <div className={'c-header'}>
             <div className={'c-header__inner container'}>
+                <a href={"/"}>
+                    <img src="/assets/images/logo.png" alt="" />
+                </a>
                 {links.map((link, index) => {
                     return <a href={link.url}>{link.label}</a>
                 })}

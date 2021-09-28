@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
-import Section from '../components/section/section';
-import Button from '../components/shared/button/button';
-import {DefaultProps} from '../interfaces';
+import Section from './components/section/section';
+import Button from '../../components/shared/button/button';
+import {DefaultProps} from '../../interfaces';
 import './homePage.scss';
 
 const imageRootFolder = '/assets/images/';
@@ -71,13 +71,13 @@ const HomePage: React.FC<DefaultProps> = ({history}) => {
   }
 
   return (
-    <div className="p-homepage container">
-      <div className={"p-homepage__panel"}>
+    <div className="p-home container container__spacer">
+      <div className={"p-home__panel"}>
         {sections.map((section, index) => {
           return <a key={index} href={'#' + section.anchor}>{section.label}</a>
         })}
       </div>
-      <div className={"p-homepage__inner"}>
+      <div className={"p-home__inner"}>
         <h1>RTSA-Suite PRO Spektrumanalyse-Software</h1>
         {sections.map((section, index) => {
           return <Section

@@ -1,0 +1,43 @@
+@import "../../../main.scss";
+
+.c-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    @include bpDesktopUp(){
+        padding: 40px 0;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        @include bpDesktopUp() {
+            max-width: 800px;
+        }
+    }
+
+    &__step {
+        background-color: $color-black-dark;
+        border: 2px solid $color-white;
+        border-radius: 50%;
+        width: 30px;
+        position: relative;
+        height: 30px;
+        &.is-active {
+            background-color: $color-white;
+        }
+
+        span {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-top: 10px;
+            position: absolute;
+            color: $color-white;
+            display: block;
+        }
+    }
+}

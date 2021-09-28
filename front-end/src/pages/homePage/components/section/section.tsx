@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import Button from '../shared/button/button';
+import Button from '../../../../components/shared/button/button';
 import './section.scss';
 
 interface SectionProps {

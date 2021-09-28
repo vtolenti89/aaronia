@@ -10,5 +10,14 @@ h3 {
     @include bpDesktopUp() {
         max-width: 1140px;
     }
+
+    &__spacer {
+        margin-top: $header-height-mobile;
+        
+        @include bpDesktopUp() {
+            margin-top: $header-height-desktop;
+            height: calc(100vh - #{$header-height-desktop});
+        }
+    }
 }
 
