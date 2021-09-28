@@ -28,7 +28,7 @@
             border: none;
         }
 
-        @include bpTabletPortraitUp() {
+        @include bpDesktopUp() {
             padding: 12px;
         }
     }

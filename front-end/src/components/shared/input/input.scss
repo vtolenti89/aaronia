@@ -2,34 +2,43 @@
 
 .c-input {
     width: 100%;
-    input {
-        background: $color-black-dark;
+    label {
         color: $color-white;
-        width: 100%;
-        border-radius: 5px;
-        border: 2px solid $color-white;
-        padding: 8px 12px;
-        font: inherit;
-        outline: inherit;
-        transition: 0.2s all ease-in-out;
-        cursor: pointer;
-
-        &:hover {
-            background: $color-white;
-          color: $color-black-dark;
-          box-shadow: 0 0 6px rgba($color: $color-white, $alpha: 1.0);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 0;
+        span {
+            min-width: 100px;
         }
+        input {
+            border-radius: 10px;
+            width: 100%;
+            margin-left: 20px;
+            padding: 6px;
 
-        &:disabled {
-            background-color: $color-grey-dark;
-            color: $color-black-dark;
-            cursor: not-allowed;
-            box-shadow: none;
-            border: none;
+            &:hover {
+                
+            }
+            
+            &:disabled {
+                background-color: $color-grey-dark;
+                color: $color-black-dark;
+                cursor: not-allowed;
+                box-shadow: none;
+                border: none;
+            }
+            
+            @include bpDesktopUp() {
+                padding: 10px;
+            }
         }
+    }
 
-        @include bpTabletPortraitUp() {
-            padding: 12px;
-        }
+    &__error {
+        color: red;
+        background-color: $color-white;
+        padding: 6px;
+        margin-top: 4px;
     }
 }

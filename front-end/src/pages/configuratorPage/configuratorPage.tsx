@@ -4,16 +4,51 @@ import Progress from './components/progress';
 import StepOne from './components/stepOne';
 import StepThree from './components/stepThree';
 import StepTwo from './components/stepTwo';
+import Summary from './components/summary';
 
 import './configuratorPage.scss';
 
+// const defaultSpecs: Specs = {
+//   version: {
+//     image: '',
+//     name: ''
+//   },
+//   option: {id: 0, option: '', description: ''},
+//   software: []
+// }
+
 const defaultSpecs: Specs = {
   version: {
-    image: '',
-    name: ''
+    image: 'V6_RSA250X_real.png',
+    label: 'SPECTRAN V6 - RSA 250X',
+    name: '250'
   },
-  option: {id: 0, option: '', description: ''},
-  software: []
+  option: {
+    id: 0,
+    option: 'Option 1245',
+  description: '245MHz Tx Erweiterung, Erweitert die Tx Datenrate von 120MHz auf 245MHz (Signalgenerator)'},
+  software: [
+    {
+      id: 1,
+    name: 'Signal Strength Locator',
+    description: 'Signal Strength Locator',
+    },
+    {
+      id: 2,
+    name: 'IQ WiFi Interaction Mapper', 
+    description: 'IQ WiFi Interaction Mapper',
+    },
+    {
+      id: 3,
+    name: 'RF Drive Test',
+    description: 'RF Drive Test',
+    },
+    {
+      id: 4,
+    name: 'IQ WiFi Drone Detector',
+    description: 'IQ WiFi Drone Detector',
+    }
+  ]
 }
 
 const properties = ['version', 'option', 'software', 'summary', 'complete'].map((prop, index) => {
@@ -25,7 +60,8 @@ const properties = ['version', 'option', 'software', 'summary', 'complete'].map(
 
 const ConfiguratorPage: React.FC<DefaultProps> = () => {
   const [specs, setSpecs] = useState<Specs>(defaultSpecs);
-  const [step, setStep] = useState<number>(1);
+  const [step, setStep] = useState<number>(3);
+  const [showSummary, setShowSummary] = useState<boolean>(true)
 
   const handleSpecChange = (name: string, value: any) => {
     setSpecs((specs) => {
@@ -43,6 +79,7 @@ const ConfiguratorPage: React.FC<DefaultProps> = () => {
 
   return (
     <div className="p-configurator container container__spacer">
+      {showSummary ? <Summary specs={specs}/> : null}
       <Progress
       actualId={step}
       list={properties}
@@ -62,7 +99,7 @@ const ConfiguratorPage: React.FC<DefaultProps> = () => {
           software={specs.software}
           onChangeSoftware={(software) => handleSpecChange('software', software)}
           onPreviousClick={() => setStep(2)}
-          onNextClick={()=>setStep(4)}
+          onNextClick={()=>setShowSummary(true)}
           />)
       }
     </div>

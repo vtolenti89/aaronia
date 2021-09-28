@@ -44,3 +44,9 @@ export interface UserForm {
     comment: string;
     privacy: boolean;
 }
+
+export interface Error {
+    field: string;
+    type: string;
+    description: string;
+  }
