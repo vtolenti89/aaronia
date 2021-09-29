@@ -5,29 +5,29 @@ import Axios from 'axios';
 import { DefaultProps, Specs, UserForm, SpecSoft, Error } from '../../../interfaces';
 import './submitForm.scss';
 
-interface SubmitFormProps {
+interface SubmitFormProps extends DefaultProps {
   specs: Specs
 }
 
-
-
-// const defaultUserForm: UserForm = {
-//   name: '',
-//   email: '',
-//   comment: '',
-//   privacy: false,
-// }
-
 const defaultUserForm: UserForm = {
-  name: 'Victor',
-  email: 'votolentino@gmail.com',
-  comment: 'blah',
-  privacy: true,
+  name: '',
+  email: '',
+  comment: '',
+  privacy: false,
 }
 
-const SubmitForm: React.FC<SubmitFormProps> = ({ specs }) => {
+// const defaultUserForm: UserForm = {
+//   name: 'Victor',
+//   email: 'votolentino@gmail.com',
+//   comment: 'blah',
+//   privacy: true,
+// }
+
+const SubmitForm: React.FC<SubmitFormProps> = ({ specs, history }) => {
   const [form, setForm] = useState<UserForm>(defaultUserForm)
   const [errors, setErrors] = useState<Array<Error>>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false);
 
   const addError = (error: Error) => {
     setErrors((errors) => {
@@ -103,14 +103,20 @@ const SubmitForm: React.FC<SubmitFormProps> = ({ specs }) => {
     })
   }
 
+  const redirectHome = () => {
+    setTimeout(()=> {
+      history.push("/");
+    }, 3000);
+  }
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
     if (!fieldsAreValid()) return;
+    setLoading(true);
     console.log("...sending")
     Axios({
       method: 'POST',
-      url: 'http://localhost:80/api/order.php',
+      url: 'api/order.php',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -121,6 +127,9 @@ const SubmitForm: React.FC<SubmitFormProps> = ({ specs }) => {
     })
     .then((response) => {
       console.log(response)
+      setLoading(false);
+      setSuccess(true);
+      redirectHome();
     })
     .catch((error) => {
       console.log(error)
@@ -161,11 +170,15 @@ console.log(errors)
             checked={form.privacy}
             onChange={(e) => handleChangeForm('privacy', e.target.checked)}
           />
+          {getError('privacy')?.field ? <div className={'c-input__error'}>{getError('privacy')?.description}</div> : null}
         </label>
         <Button 
           label={'Order'}
           onClick={handleSubmit}
+          disabled={loading}
         />
+        {loading && <div className="loader"></div>}
+        {success && <h2>We received your order :-)</h2>}
       </form>
     </div>
   );

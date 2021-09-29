@@ -1,5 +1,23 @@
 @import "../../../main.scss";
 
 .c-submit {
+    color: $color-white;
 
+    label {
+        margin: 15px 0;
+    }
+
+    .loader {
+        border: 16px solid $color-white;
+        border-top: 16px solid $color-black-dark;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        animation: spin 2s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
 }

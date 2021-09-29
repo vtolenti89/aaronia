@@ -5,14 +5,19 @@
     height: 100%;
     width: 100%;
     z-index: 999;
-    background-color: blue;
+    background-color: $color-black-dark;
     border: 2px solid $color-white;
-    top: 40px;
+    top: -100vh;
     left: 50%;
     width: 90%;
     transform: translateX(-50%);
     border-radius: 20px;
     padding: 20px;
+
+    transition: 0.5s all ease-in-out;
+    &.is-visible {
+        top: 40px;
+    }
 
     h1 {
         text-align: center;

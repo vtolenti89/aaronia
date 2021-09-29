@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { AiOutlineCloseCircle } from  "react-icons/ai";
 import { DefaultProps, Specs, UserForm, SpecSoft } from '../../../interfaces';
 import SubmitForm from './submitForm';
 import './summary.scss';
 
-interface SummaryProps {
-  specs: Specs
+interface SummaryProps extends DefaultProps {
+  specs: Specs;
+  show?: boolean;
+  onClose: () => void;
 }
 
 interface Error {
@@ -20,10 +23,11 @@ const defaultUserForm: UserForm = {
   privacy: false,
 }
 
-const Summary: React.FC<SummaryProps> = ({ specs }) => {
+const Summary: React.FC<SummaryProps> = ({ show, specs, history, onClose }) => {
 
   return (
-    <div className="c-summary">
+    <div className={`c-summary ${show ? 'is-visible' : ''}`}>
+      <a href="#" onClick={onClose}><AiOutlineCloseCircle/></a>
       <h1>Summary</h1>
       <div className={'c-summary__upper'}>
         <img src={'/assets/images/' + specs.version.image} alt="specs_image" />
@@ -46,6 +50,7 @@ const Summary: React.FC<SummaryProps> = ({ specs }) => {
       </div>
           
       <SubmitForm
+        history={history}
         specs={specs}
       />
 

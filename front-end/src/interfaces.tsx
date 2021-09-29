@@ -1,7 +1,7 @@
 export interface DefaultProps {
-    history: any;
-    location: any;
-    match: any;
+    history?: any;
+    location?: any;
+    match?: any;
 } 
 
 export interface SpecOption {

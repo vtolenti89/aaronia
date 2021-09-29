@@ -3,6 +3,7 @@
 .p-home {
     padding: 0 20px;
     display: flex;
+    // height: calc(100vh - #{$header-height-desktop});
     // margin-top: $header-height-mobile;
     overflow: hidden;
     position: relative;

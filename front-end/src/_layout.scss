@@ -16,7 +16,7 @@ h3 {
         
         @include bpDesktopUp() {
             margin-top: $header-height-desktop;
-            height: calc(100vh - #{$header-height-desktop});
+            min-height: calc(100vh - #{$header-height-desktop});
         }
     }
 }
